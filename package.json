@@ -1,0 +1,13 @@
+{
+  "name": "mt1-labexam",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Employee Task Management Web Application for the MT1 Node.js lab examination",
+  "scripts": {
+    "http": "node httpServer.js",
+    "express": "node expressApp.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
