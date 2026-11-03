@@ -2,7 +2,9 @@ import express from 'express';
 
 const app = express();
 const PORT = 4000;
-app.use(express.json());
+// EchoAPI's raw JSON body should be sent as application/json. Accepting text/plain
+// as well makes the API tolerant of EchoAPI requests whose content type is not set.
+app.use(express.json({ type: ['application/json', 'application/*+json', 'text/plain'] }));
 
 let tasks = [
   { id: 1, taskName: 'Develop Login Page', assignedTo: 'Rahul Sharma', status: 'Pending', priority: 'High' },

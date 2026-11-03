@@ -12,6 +12,8 @@ Base URL: `http://localhost:4000`
 
 ## POST body (EchoAPI: Body -> raw -> JSON)
 
+In EchoAPI, choose **Body -> raw -> JSON** and ensure the request has `Content-Type: application/json`. The body must include all four required fields: `taskName`, `assignedTo`, `status`, and `priority`. Omitting `priority` is the reason the API returns HTTP 400.
+
 ```json
 {
   "taskName": "Develop REST API",
