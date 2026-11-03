@@ -1,11 +1,5 @@
 # Screenshot Evidence
 
-Place EchoAPI and server screenshots in this folder. The repository keeps this folder in Git with the evidence checklist below.
+This folder contains genuine screenshots captured from the local servers, browser, and EchoAPI. No generated or fabricated SVG evidence is used.
 
-- `http-server-running.svg`
-- `static-file-serving.svg`
-- `echoapi-get.svg`
-- `echoapi-post.svg`
-- `echoapi-put.svg`
-- `echoapi-delete.svg`
-- `github-commit-history.svg`
+The remaining manual evidence must be captured in EchoAPI for POST, PUT, and DELETE requests, then saved here.

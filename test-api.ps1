@@ -74,6 +74,11 @@ try {
   $updatedBody = $updated.Body | ConvertFrom-Json
   Assert-Equal $updatedBody.task.status 'Completed' 'PUT /tasks/1 body'
 
+  $missingPut = Send-Request 'Put' '/tasks/99999' $updatedTask
+  Assert-Equal $missingPut.StatusCode 404 'PUT /tasks/99999 status'
+  $missingPutBody = $missingPut.Body | ConvertFrom-Json
+  Assert-Equal $missingPutBody.error 'Task not found' 'PUT /tasks/99999 body'
+
   $deleted = Send-Request 'Delete' "/tasks/$createdId"
   Assert-Equal $deleted.StatusCode 200 'DELETE /tasks/{createdId} status'
   $deletedBody = $deleted.Body | ConvertFrom-Json
@@ -85,6 +90,11 @@ try {
   Assert-Equal $missing.StatusCode 404 'GET /tasks/99999 status'
   $missingBody = $missing.Body | ConvertFrom-Json
   Assert-Equal $missingBody.error 'Task not found' 'GET /tasks/99999 body'
+
+  $invalidJson = Send-Request 'Post' '/tasks' '{"taskName":'
+  Assert-Equal $invalidJson.StatusCode 400 'POST /tasks invalid JSON status'
+  $invalidJsonBody = $invalidJson.Body | ConvertFrom-Json
+  Assert-Equal $invalidJsonBody.error 'Request body must be valid JSON' 'POST /tasks invalid JSON body'
 
   Write-Host 'All Express API tests passed.' -ForegroundColor Cyan
 } finally {

@@ -44,5 +44,12 @@ app.delete('/tasks/:id', (req, res) => {
   return res.json({ message: 'Task deleted successfully', task: deleted });
 });
 
+app.use((error, _req, res, next) => {
+  if (error instanceof SyntaxError && error.status === 400 && error.type === 'entity.parse.failed') {
+    return res.status(400).json({ error: 'Request body must be valid JSON' });
+  }
+  return next(error);
+});
+
 app.use((_req, res) => res.status(404).json({ error: 'Route not found' }));
 app.listen(PORT, () => console.log(`Express Server running at http://localhost:${PORT}`));

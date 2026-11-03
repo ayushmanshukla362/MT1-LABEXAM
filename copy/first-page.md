@@ -8,7 +8,7 @@ Database: Not Required - use a JavaScript array
 
 ## Repository link
 
-https://github.com/ayushmanshukla362/MT1-LABECAM
+[MT1-LABECAM on GitHub](https://github.com/ayushmanshukla362/MT1-LABECAM)
 
 ## Submission note
 
