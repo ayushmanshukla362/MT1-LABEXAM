@@ -4,7 +4,7 @@ Employee Task Management Web Application built for the MT1 Node.js lab examinati
 
 ## Repository link
 
-`https://github.com/ayushmanshukla362/MT1-LABECAM` *(add the final live link after the GitHub repository is created)*
+`https://github.com/ayushmanshukla362/MT1-LABECAM` 
 
 ## Run
 
