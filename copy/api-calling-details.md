@@ -8,7 +8,7 @@ Base URL: `http://localhost:4000`
 | --- | --- | ---: | --- |
 | GET | `/tasks` | 200 | Returns the complete in-memory task array |
 | GET | `/tasks/1` | 200 | Returns task ID 1; returns 404 if it does not exist |
-| POST | `/tasks` | 201 | Creates a task and auto-generates the next numeric ID |
+| POST | `/tasks` | 201 | Creates a task; preserves a supplied numeric `id`, otherwise generates the next numeric ID |
 | PUT | `/tasks/1` | 200 | Replaces task 1 details; returns 404 if task 1 does not exist |
 | DELETE | `/tasks/1` | 200 | Removes task 1 and returns the deleted task |
 
@@ -16,7 +16,7 @@ All request bodies must be JSON. In EchoAPI, choose **Body -> raw -> JSON** and 
 
 ## POST `/tasks`
 
-Required fields: `taskName`, `assignedTo`, `status`, and `priority`. Do not include `id`; the server generates it.
+Required fields: `taskName`, `assignedTo`, `status`, and `priority`. The paper's sample includes `id: 4`; the current implementation preserves a supplied `id`, and generates the next numeric ID when `id` is omitted.
 
 ```json
 {
